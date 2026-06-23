@@ -1,14 +1,13 @@
-import { WebsiteType } from "@/types/website";
+import WebsiteHeader from "@/composants/ui/WebsiteHeader";
+import { WebsiteType } from "@/types/Website";
 
 export async function getStaticPaths() {
   const websites = await fetch("http://localhost:3000/websites.json").then(
     (res) => res.json(),
   );
-
   const paths = websites.map((w: WebsiteType) => ({
     params: { slug: w.slug },
   }));
-
   return { paths, fallback: true };
 }
 
@@ -17,15 +16,11 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   const websites = await fetch("http://localhost:3000/websites.json").then(
     (res) => res.json(),
   );
-
-  const currentWebsite = websites.find((w: WebsiteType) => w.slug === slug);
-
+  const currentWebsite = websites.find((w: WebsiteType) => w.slug == slug);
+  console.log("currentWebsite: ", currentWebsite);
   if (!currentWebsite) return { redirect: { destination: "/websites" } };
 
-  console.log("currentWebsite=: ", currentWebsite);
-  return {
-    props: { website: currentWebsite },
-  };
+  return { props: { website: currentWebsite } };
 }
 
 type WebsitePageType = {
@@ -33,12 +28,9 @@ type WebsitePageType = {
 };
 
 export default function WebsitePage({ website }: WebsitePageType) {
-  console.log("website: ", website);
   return (
-    website && (
-      <div>
-        <h1>{website.title}</h1>
-      </div>
-    )
+    <main>
+      <WebsiteHeader website={website} />
+    </main>
   );
 }
