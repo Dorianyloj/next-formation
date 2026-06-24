@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/google-font-display, @next/next/no-page-custom-font */
 import Footer from "@/composants/layout/Footer";
 import Header from "@/composants/layout/Header";
 import ScrollTop from "@/composants/layout/ScrollTop";

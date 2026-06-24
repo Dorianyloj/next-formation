@@ -11,6 +11,7 @@ export default function Video({ id }: VideoType) {
   const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHasConsent(CookieConsent.acceptedCategory("media"));
     const onChange = () =>
       setHasConsent(CookieConsent.acceptedCategory("media"));

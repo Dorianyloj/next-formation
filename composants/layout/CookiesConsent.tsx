@@ -20,11 +20,12 @@ export default function CookiesConsent() {
         Manage cookie preferences
       </button>
       <Script
+        id="google-analytics-cookieconsent"
         type="text/plain"
         data-category="analytics"
         data-service="Google Analytics"
       >
-        console.log('test')
+        {`console.log("test")`}
       </Script>
     </>
   );

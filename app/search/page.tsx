@@ -1,4 +1,3 @@
-type SearchPageType = {};
-export default function SearchPage({}: SearchPageType) {
+export default function SearchPage() {
   return <main>SearchPage</main>;
 }

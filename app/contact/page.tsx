@@ -1,4 +1,3 @@
-type ContactPageType = {};
-export default function ContactPage({}: ContactPageType) {
+export default function ContactPage() {
   return <main>ContactPage</main>;
 }
